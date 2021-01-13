@@ -16,3 +16,9 @@ Apps to install
 
 Set up
 - Remmina UPOL 
+
+Theme
+- Arc-Dark
+
+Icons
+- Arc-Dark

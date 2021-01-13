@@ -1,0 +1,18 @@
+Apps to install
+
+- Thunderbird
+- Touchegg
+- Teams
+- VSCode
+- Electronplayer
+- Spotify
+- TLPUI
+- Spectacle
+- Qdirstat
+- Timeshift
+- Vim
+- Texmaker
+- Owncloud client
+
+Set up
+- Remmina UPOL 

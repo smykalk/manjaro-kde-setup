@@ -17,5 +17,4 @@ AUR:
 - Spotify
 
 Set up
-- Remmina UPOL 
 - Thunderbird and Teams start on 3rd desktop

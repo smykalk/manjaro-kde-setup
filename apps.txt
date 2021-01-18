@@ -1,25 +1,21 @@
 Apps to install
 
+pacman:
 - Thunderbird
-- Touchegg
+- libinput-gestures
+- TLPUI
+- Timeshift
+- Vim
+- Texmaker
+
+AUR:
+- Owncloud client
+- Qdirstat
 - Teams
 - VSCode
 - Electronplayer
 - Spotify
-- TLPUI
-- Spectacle
-- Qdirstat
-- Timeshift
-- Vim
-- Texmaker
-- Owncloud client
 
 Set up
 - Remmina UPOL 
 - Thunderbird and Teams start on 3rd desktop
-
-Theme
-- Arc-Dark
-
-Icons
-- Arc-Dark

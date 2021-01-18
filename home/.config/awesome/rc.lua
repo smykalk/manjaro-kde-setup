@@ -14,32 +14,41 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
-
--- Widgets
-local volume_control = require("volume-control")
-volumecfg = volume_control {device="pulse"}
-
-local battery_widget = require("battery-widget")
-local BAT0 = battery_widget { adapter = "BAT0", ac = "AC" }
-
-local brightness = require("brightness")
-brightnesscfg = brightness({})
-
-local layout_indicator = require("keyboard-layout-indicator")
-kbdcfg = layout_indicator({
-    layouts = {
-        {name="us",  layout="us",  variant=nil},
-        {name="cz",  layout="cz",  variant=nil}
-    }
-})
-
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- Load Debian menu entries
-local debian = require("debian.menu")
-local has_fdo, freedesktop = pcall(require, "freedesktop")
+-- Custom plugins
+local lain = require("lain")
+
+-- Volume widget
+local volume = lain.widget.pulse {
+    settings = function()
+        vlevel = " " .. volume_now.left .. "% | " .. volume_now.device ..  " " 
+        if volume_now.muted == "yes" then
+            vlevel = " " .. "M | " .. volume_now.device .. " "
+        end
+        widget:set_markup(lain.util.markup("#7493d2", vlevel))
+    end
+}
+
+volume.widget:buttons(awful.util.table.join(
+    awful.button({}, 1, function() -- left click
+        awful.spawn("pavucontrol-qt")
+    end),
+    awful.button({}, 3, function() -- right click
+        os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
+        volume.update()
+    end),
+    awful.button({}, 4, function() -- scroll up
+        os.execute(string.format("pactl set-sink-volume %s +1%%", volume.device))
+        volume.update()
+    end),
+    awful.button({}, 5, function() -- scroll down
+        os.execute(string.format("pactl set-sink-volume %s -1%%", volume.device))
+        volume.update()
+    end)
+))
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -71,8 +80,8 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
-editor = os.getenv("EDITOR") or "editor"
+terminal = "konsole"
+editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -83,16 +92,16 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
-awful.layout.layouts = { 
+awful.layout.layouts = {
     awful.layout.suit.tile,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.floating,
     -- awful.layout.suit.tile.left,
-    -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.fair,
+    awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
@@ -113,24 +122,10 @@ myawesomemenu = {
    { "quit", function() awesome.quit() end },
 }
 
-local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
-local menu_terminal = { "open terminal", terminal }
-
-if has_fdo then
-    mymainmenu = freedesktop.menu.build({
-        before = { menu_awesome },
-        after =  { menu_terminal }
-    })
-else
-    mymainmenu = awful.menu({
-        items = {
-                  menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian },
-                  menu_terminal,
-                }
-    })
-end
-
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "open terminal", terminal }
+                                  }
+                        })
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -247,11 +242,9 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-	    brightnesscfg.widget,
-	    volumecfg.widget,
-	    BAT0,
-            kbdcfg.widget,
-	    wibox.widget.systray(),
+ 	    volume.widget,
+            mykeyboardlayout,
+            wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
         },
@@ -269,19 +262,6 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    -- Volume control
-    awful.key({}, "XF86AudioRaiseVolume", function() volumecfg:up() end),
-    awful.key({}, "XF86AudioLowerVolume", function() volumecfg:down() end),
-    awful.key({}, "XF86AudioMute",        function() volumecfg:toggle() end),
-
-    -- Brightness control
-    awful.key({}, "XF86MonBrightnessUp", function() brightnesscfg:up() end),
-    awful.key({}, "XF86MonBrightnessDown", function() brightnesscfg:down() end),
-
-    -- Keyboard layout switching
-    awful.key({ "Shift"         }, "Shift_R", function() kbdcfg:next() end ),
-
-
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -393,7 +373,7 @@ clientkeys = gears.table.join(
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
-    awful.key({ modkey, "Shift" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
@@ -423,7 +403,25 @@ clientkeys = gears.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize horizontally", group = "client"}),
+
+
+-- PulseAudio volume control
+awful.key({}, "XF86AudioRaiseVolume",
+    function ()
+        os.execute(string.format("pactl set-sink-volume %s +2%%", volume.device))
+        volume.update()
+    end),
+awful.key({}, "XF86AudioLowerVolume",
+    function ()
+        os.execute(string.format("pactl set-sink-volume %s -2%%", volume.device))
+        volume.update()
+    end),
+awful.key({}, "XF86AudioMute",
+    function ()
+        os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
+        volume.update()
+    end)
 )
 
 -- Bind all key numbers to tags.
@@ -473,6 +471,7 @@ for i = 1, 9 do
                       end
                   end,
                   {description = "toggle focused client on tag #" .. i, group = "tag"})
+	
     )
 end
 
@@ -544,19 +543,11 @@ awful.rules.rules = {
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = false }
-   },
+    },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    { rule = { class = "Firefox" },
-       properties = { screen = 1, tag = "1" } },
-    
-    { rule = { class = "kitty" },
-       properties = { screen = 1, tag = "2" } },
-    
-    { rule = { class = "Thunderbird" },
-       properties = { screen = 1, tag = "3" } },
-       
-       
+    -- { rule = { class = "Firefox" },
+    --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
@@ -606,9 +597,9 @@ client.connect_signal("request::titlebars", function(c)
         { -- Right
             awful.titlebar.widget.floatingbutton (c),
             awful.titlebar.widget.maximizedbutton(c),
-            -- awful.titlebar.widget.stickybutton   (c),
-            -- awful.titlebar.widget.ontopbutton    (c),
-            -- awful.titlebar.widget.closebutton    (c),
+            awful.titlebar.widget.stickybutton   (c),
+            awful.titlebar.widget.ontopbutton    (c),
+            awful.titlebar.widget.closebutton    (c),
             layout = wibox.layout.fixed.horizontal()
         },
         layout = wibox.layout.align.horizontal
@@ -616,32 +607,16 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
---client.connect_signal("mouse::enter", function(c)
---    c:emit_signal("request::activate", "mouse_enter", {raise = false})
---end)
+client.connect_signal("mouse::enter", function(c)
+    c:emit_signal("request::activate", "mouse_enter", {raise = false})
+end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
--- Only floating windows have titlebars
-client.connect_signal("property::floating", function(c)
-    local b = false;
-    if c.first_tag ~= nil then
-        b = c.first_tag.layout.name == "floating"
-    end
-    if c.floating or b then
-        awful.titlebar.show(c)
-    else
-        awful.titlebar.hide(c)
-    end
-end)
-
 -- }}}
-beautiful.useless_gap = 5
 
--- Autostart apps
-awful.spawn.with_shell("xinput set-prop 'SYNA3067:00 06CB:8265 Touchpad' 'libinput Accel Speed' 0.4")
-awful.spawn.with_shell("compton")
-awful.spawn.with_shell("touchegg")
-awful.spawn.with_shell("thunderbird")
-awful.spawn.with_shell("sleep 1 && nitrogen --restore")
+
+
+
+
+beautiful.useless_gap = 4 

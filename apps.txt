@@ -7,20 +7,22 @@
 Apps to install
 
 pacman:
-- Thunderbird
+- thunderbird
 - libinput-gestures
-- TLPUI
-- Timeshift
-- Vim
-- Texmaker
+- tlpui
+- timeshift
+- vim
+- texmaker
+- owncloud-client
+- yay
 
 AUR:
-- Owncloud client
-- Qdirstat
-- Teams
-- VSCode
-- Electronplayer
-- Spotify
+- qdirstat
+- teams
+- visual-studio-code-bin
+- electronplayer
+- spotify
 
 Set up
 - Thunderbird and Teams start on 3rd desktop
+- Electronplayer icons

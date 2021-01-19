@@ -23,6 +23,9 @@ AUR:
 - electronplayer
 - spotify
 
+From web:
+- LispWorks
+
 Set up
 - Thunderbird and Teams start on 3rd desktop
 - Electronplayer icons

@@ -28,4 +28,4 @@ From web:
 
 Set up
 - Thunderbird and Teams start on 3rd desktop
-- Electronplayer icons
+- Electronplayer + Lispworks launchers and icons

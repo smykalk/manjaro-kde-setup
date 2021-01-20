@@ -15,4 +15,7 @@ df='df -h' \
 free='free -m' \
 locate='lolcate' \
 stor='cd /media/storage/' \
-awec='vim ~/.config/awesome/rc.lua'
+awec='vim ~/.config/awesome/rc.lua' \
+rdup='rdesktop -d prfad -u smykja00 -r clipboard:CLIPBOARD -D  ts.inf.upol.cz &' \
+free='free -h'
+

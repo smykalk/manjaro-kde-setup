@@ -142,6 +142,12 @@ fi
 
 export EDITOR=vim
 
+# pkgfile hook to search repositories when entering an unknown command
+source /usr/share/doc/pkgfile/command-not-found.bash
+
+# auto cd when entering just a path
+shopt -s autocd
+
 
 # # Autostart
 #neofetch

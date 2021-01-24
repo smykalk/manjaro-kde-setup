@@ -19,36 +19,32 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- Custom plugins
-local lain = require("lain")
+local vicious = require("vicious")
 
--- Volume widget
-local volume = lain.widget.pulse {
-    settings = function()
-        vlevel = " " .. volume_now.left .. "% | " .. volume_now.device ..  " " 
-        if volume_now.muted == "yes" then
-            vlevel = " " .. "M | " .. volume_now.device .. " "
-        end
-        widget:set_markup(lain.util.markup("#7493d2", vlevel))
-    end
-}
+-- Widget separator
+separator = wibox.widget {
+                widget = wibox.widget.separator,
+                forced_width = 10,
+                thickness = 1
+            }
 
-volume.widget:buttons(awful.util.table.join(
-    awful.button({}, 1, function() -- left click
-        awful.spawn("pavucontrol-qt")
-    end),
-    awful.button({}, 3, function() -- right click
-        os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
-        volume.update()
-    end),
-    awful.button({}, 4, function() -- scroll up
-        os.execute(string.format("pactl set-sink-volume %s +1%%", volume.device))
-        volume.update()
-    end),
-    awful.button({}, 5, function() -- scroll down
-        os.execute(string.format("pactl set-sink-volume %s -1%%", volume.device))
-        volume.update()
-    end)
-))
+-- Memory widget
+memwidget = wibox.widget.textbox()
+vicious.cache(vicious.widgets.mem)
+vicious.register(memwidget, vicious.widgets.mem, "MEM: $1%", 13)
+
+-- Battery widget
+batwidget = wibox.widget.textbox()
+vicious.cache(vicious.widgets.bat)
+vicious.register(batwidget, vicious.widgets.bat, ": $2%", 61, "BAT0")
+
+-- CPU widget
+cpuwidget = wibox.widget.textbox()
+vicious.register(cpuwidget, vicious.widgets.cpu, "CPU: $1%", 1)
+
+
+
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -77,7 +73,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
+beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "konsole"
@@ -201,7 +199,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "", "", "", "", "", "", "7", "8", "9" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -242,10 +240,18 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
- 	    volume.widget,
+            separator,
+            cpuwidget,
+            separator,
+            memwidget,
+            separator,
+            batwidget,
+            separator,
             mykeyboardlayout,
+            separator,
             wibox.widget.systray(),
             mytextclock,
+            separator,
             s.mylayoutbox,
         },
     }
@@ -271,13 +277,13 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    awful.key({ modkey,           }, "j",
+    awful.key({ modkey,           }, "k",
         function ()
             awful.client.focus.byidx( 1)
         end,
         {description = "focus next by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "k",
+    awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx(-1)
         end,
@@ -287,13 +293,13 @@ globalkeys = gears.table.join(
               {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
+    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
+    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
@@ -311,8 +317,12 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+    awful.key({ modkey, "Control"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
+
+    -- CUSTOM PROGRAMS
+    awful.key({ modkey,           }, "b", function () awful.spawn("firefox") end,
+              {description = "launch firefox", group = "launcher"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
@@ -359,7 +369,24 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "r", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    
+    -- Volume control
+    awful.key({}, "XF86AudioRaiseVolume", function() os.execute("pactl set-sink-volume 0 +5%") end,
+              {description = "raise volume", group = "i/o controls"}),    
+    awful.key({}, "XF86AudioLowerVolume", function() os.execute("pactl set-sink-volume 0 -5%") end,
+              {description = "lower volume", group = "i/o controls"}),
+    awful.key({}, "XF86AudioMute", function() os.execute("pactl set-sink-mute 0 toggle") end,
+              {description = "mute volume", group = "i/o controls"}),
+        
+    
+    -- Brightness control
+    awful.key({}, "XF86MonBrightnessUp", function() os.execute("xbacklight -inc 5%") end,
+              {description = "increase brightness", group = "i/o controls"}),
+    
+    awful.key({}, "XF86MonBrightnessDown", function() os.execute("xbacklight -dec 5%") end,
+              {description = "decrease brightness", group = "i/o controls"})
+    
 )
 
 clientkeys = gears.table.join(
@@ -403,27 +430,8 @@ clientkeys = gears.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"}),
-
-
--- PulseAudio volume control
-awful.key({}, "XF86AudioRaiseVolume",
-    function ()
-        os.execute(string.format("pactl set-sink-volume %s +2%%", volume.device))
-        volume.update()
-    end),
-awful.key({}, "XF86AudioLowerVolume",
-    function ()
-        os.execute(string.format("pactl set-sink-volume %s -2%%", volume.device))
-        volume.update()
-    end),
-awful.key({}, "XF86AudioMute",
-    function ()
-        os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
-        volume.update()
-    end)
+        {description = "(un)maximize horizontally", group = "client"})
 )
-
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
@@ -545,9 +553,26 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = false }
     },
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    
+    -- , , , , , 
+    -- Set Firefox to always map on the tag named "" on screen 1.
+     { rule = { class = "firefox" },
+       properties = { screen = 1, tag = "" } },
+    -- Set Thunderbird to always map on the tag named "" on screen 1.
+    { rule = { class = "Thunderbird" },
+       properties = { screen = 1, tag = "" } },
+    -- Set Konsole to always map on the tag named "" on screen 1.
+    { rule = { class = "konsole" },
+       properties = { screen = 1, tag = "" } },
+    -- Set VSCode to always map on the tag named "" on screen 1.
+    { rule = { class = "Code" },
+       properties = { screen = 1, tag = "" } },
+    -- Set Lispworks to always map on the tag named "" on screen 1.
+    { rule = { class = "Lispworks" },
+       properties = { screen = 1, tag = "" } },
+    -- Set Dolphin to always map on the tag named "" on screen 1.
+    { rule = { class = "dolphin" },
+       properties = { screen = 1, tag = "" } },
 }
 -- }}}
 
@@ -607,16 +632,30 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
-end)
+--client.connect_signal("mouse::enter", function(c)
+--    c:emit_signal("request::activate", "mouse_enter", {raise = false})
+--end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
 
+-- Autostart apps
+autorun = true
+autorunApps =
+{
+    "xinput set-prop 'SYNA3067:00 06CB:8265 Touchpad' 'libinput Accel Speed' 0.4",
+    "xinput set-prop 'SYNA3067:00 06CB:8265 Touchpad' 'libinput Natural Scrolling Enabled' 1",
+    "picom",
+    "setxkbmap -layout 'us,cz' -option 'grp:alt_shift_toggle'",
+    "nm-applet",
+    "volumeicon",
+}
+if autorun then
+   for app = 1, #autorunApps do
+       awful.spawn.with_shell(autorunApps[app])
+   end
+end
 
 
-
-beautiful.useless_gap = 4 

@@ -15,6 +15,7 @@ pacman:
 - texmaker
 - owncloud-client
 - yay
+- kitty
 
 AUR:
 - qdirstat

@@ -148,6 +148,7 @@ source /usr/share/doc/pkgfile/command-not-found.bash
 # auto cd when entering just a path
 shopt -s autocd
 
+export PATH=$PATH:~/Scripts/
 
 # # Autostart
 #neofetch

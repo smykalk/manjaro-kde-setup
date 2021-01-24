@@ -74,13 +74,17 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
+local theme = "default"
+
+local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), theme)
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
-terminal = "konsole"
+terminal = "kitty"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
+browser="firefox"
+fileexp="dolphin"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -233,6 +237,7 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
+            spacing = 5,
             -- mylauncher,
             s.mytaglist,
             s.mypromptbox,
@@ -240,7 +245,6 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            separator,
             cpuwidget,
             separator,
             memwidget,
@@ -321,8 +325,11 @@ globalkeys = gears.table.join(
               {description = "quit awesome", group = "awesome"}),
 
     -- CUSTOM PROGRAMS
-    awful.key({ modkey,           }, "b", function () awful.spawn("firefox") end,
-              {description = "launch firefox", group = "launcher"}),
+    awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
+              {description = "launch Firefox", group = "launcher"}),
+    awful.key({ modkey,           }, "v", function () awful.spawn("thunderbird") end,
+              {description = "launch Thunderbird", group = "launcher"}),
+    
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
@@ -556,13 +563,13 @@ awful.rules.rules = {
     
     -- , , , , , 
     -- Set Firefox to always map on the tag named "" on screen 1.
-     { rule = { class = "firefox" },
+     { rule = { class = browser },
        properties = { screen = 1, tag = "" } },
     -- Set Thunderbird to always map on the tag named "" on screen 1.
     { rule = { class = "Thunderbird" },
        properties = { screen = 1, tag = "" } },
     -- Set Konsole to always map on the tag named "" on screen 1.
-    { rule = { class = "konsole" },
+    { rule = { class = terminal },
        properties = { screen = 1, tag = "" } },
     -- Set VSCode to always map on the tag named "" on screen 1.
     { rule = { class = "Code" },
@@ -571,8 +578,11 @@ awful.rules.rules = {
     { rule = { class = "Lispworks" },
        properties = { screen = 1, tag = "" } },
     -- Set Dolphin to always map on the tag named "" on screen 1.
-    { rule = { class = "dolphin" },
+    { rule = { class = fileexp },
        properties = { screen = 1, tag = "" } },
+        -- Set Dolphin to always map on the tag named "" on screen 1.
+    { rule = { class = "Spotify" },
+       properties = { screen = 1, tag = "" } },
 }
 -- }}}
 
@@ -648,9 +658,11 @@ autorunApps =
     "xinput set-prop 'SYNA3067:00 06CB:8265 Touchpad' 'libinput Accel Speed' 0.4",
     "xinput set-prop 'SYNA3067:00 06CB:8265 Touchpad' 'libinput Natural Scrolling Enabled' 1",
     "picom",
-    "setxkbmap -layout 'us,cz' -option 'grp:alt_shift_toggle'",
+    "setxkbmap -layout 'us(altgr-intl),cz' -option 'grp:alt_shift_toggle'",
     "nm-applet",
-    "volumeicon",
+    string.format("%s/Scripts/volicon.sh", os.getenv("HOME")),
+    string.format("%s/Scripts/dualscreen.sh", os.getenv("HOME")),
+    "libinput-gestures-setup start",
 }
 if autorun then
    for app = 1, #autorunApps do

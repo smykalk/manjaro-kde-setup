@@ -41,3 +41,6 @@ For awesome:
 - xorg-xinput
 - pavucontrol-qt
 - volumeicon
+- scrot
+- imagemagick
+- i3lock

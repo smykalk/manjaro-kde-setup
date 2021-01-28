@@ -12,7 +12,7 @@ pacman:
 - xdotool
 - tlpui
 - timeshift
-- vim
+- gvim
 - texmaker
 - owncloud-client
 - yay

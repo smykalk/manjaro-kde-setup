@@ -34,6 +34,9 @@ Set up
 - Electronplayer + Lispworks launchers and icons
 
 For awesome:
+- awesome
 - nm-applet
+- picom
+- arandr
 - pavucontrol-qt
 - volumeicon

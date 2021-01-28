@@ -20,7 +20,8 @@ pacman:
 
 AUR:
 - qdirstat
-- teams - requires gnome-keyring
+- teams
+- gnome-keyring - for teams
 - visual-studio-code-bin
 - electronplayer
 - spotify

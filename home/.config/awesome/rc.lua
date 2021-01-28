@@ -27,11 +27,12 @@ separator = wibox.widget {
                 forced_width = 10,
                 thickness = 1
             }
+space_separator = wibox.widget.textbox("  ")
 
 -- Memory widget
 memwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.mem)
-vicious.register(memwidget, vicious.widgets.mem, "MEM: $1%", 13)
+vicious.register(memwidget, vicious.widgets.mem, "MEM: $1%", 15)
 
 -- Battery widget
 batwidget = wibox.widget.textbox()
@@ -40,7 +41,7 @@ vicious.register(batwidget, vicious.widgets.bat, ": $2%", 61, "BAT0")
 
 -- CPU widget
 cpuwidget = wibox.widget.textbox()
-vicious.register(cpuwidget, vicious.widgets.cpu, "CPU: $1%", 1)
+vicious.register(cpuwidget, vicious.widgets.cpu, "CPU: $1%", 2)
 
 
 
@@ -245,6 +246,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+	    space_separator,
             cpuwidget,
             separator,
             memwidget,
@@ -329,6 +331,12 @@ globalkeys = gears.table.join(
               {description = "launch Firefox", group = "launcher"}),
     awful.key({ modkey,           }, "v", function () awful.spawn("thunderbird") end,
               {description = "launch Thunderbird", group = "launcher"}),
+    awful.key({ modkey,           }, "e", function () awful.spawn(fileexp) end,
+              {description = "launch Firefox", group = "launcher"}),
+
+    -- Lock screen
+    awful.key({ modkey,           }, ";", function () os.execute("lock") end,
+              {description = "launch Firefox", group = "launcher"}),
     
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -580,8 +588,11 @@ awful.rules.rules = {
     -- Set Dolphin to always map on the tag named "" on screen 1.
     { rule = { class = fileexp },
        properties = { screen = 1, tag = "" } },
-        -- Set Dolphin to always map on the tag named "" on screen 1.
+    -- Set Spotify to always map on the tag named "" on screen 1.
     { rule = { class = "Spotify" },
+       properties = { screen = 1, tag = "" } },
+    -- Set ElectronPlayer to always map on the tag named "" on screen 1.
+    { rule = { class = "electronplayer" },
        properties = { screen = 1, tag = "" } },
 }
 -- }}}
@@ -659,10 +670,13 @@ autorunApps =
     "xinput set-prop 'SYNA3067:00 06CB:8265 Touchpad' 'libinput Natural Scrolling Enabled' 1",
     "picom",
     "setxkbmap -layout 'us(altgr-intl),cz' -option 'grp:alt_shift_toggle'",
+    "setxkbmap -option 'caps:swapescape'",
+    "xset r rate 500 50",
     "nm-applet",
-    string.format("%s/Scripts/volicon.sh", os.getenv("HOME")),
-    string.format("%s/Scripts/dualscreen.sh", os.getenv("HOME")),
+    "volicon",
+    "dualscreen",
     "libinput-gestures-setup start",
+    "locker",
 }
 if autorun then
    for app = 1, #autorunApps do

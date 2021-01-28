@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if ! pgrep volumeicon > /dev/null
+then
+	volumeicon &
+fi

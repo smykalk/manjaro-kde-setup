@@ -38,5 +38,6 @@ For awesome:
 - nm-applet
 - picom
 - arandr
+- xorg-xinput
 - pavucontrol-qt
 - volumeicon

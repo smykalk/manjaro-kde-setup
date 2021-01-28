@@ -44,3 +44,4 @@ For awesome:
 - scrot
 - imagemagick
 - i3lock
+- xidlehook

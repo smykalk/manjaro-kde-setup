@@ -7,8 +7,9 @@
 Apps to install
 
 pacman:
-- thunderbird
 - libinput-gestures
+- wmctrl
+- xdotool
 - tlpui
 - timeshift
 - vim
@@ -23,6 +24,7 @@ AUR:
 - visual-studio-code-bin
 - electronplayer
 - spotify
+- opendoas-sudo
 
 From web:
 - LispWorks

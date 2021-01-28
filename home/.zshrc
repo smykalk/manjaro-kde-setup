@@ -14,5 +14,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 
+export EDITOR=vim
+
 # Autostart
 pfetch

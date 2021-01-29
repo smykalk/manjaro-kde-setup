@@ -40,6 +40,7 @@ For awesome:
 - picom
 - arandr
 - xorg-xinput
+- xorg-xbacklight
 - pavucontrol-qt
 - volumeicon
 - scrot

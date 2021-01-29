@@ -30,5 +30,5 @@ set relativenumber
 set nocompatible
 set path+=**
 set wildmenu
-
+set clipboard=unnamedplus
 

@@ -17,6 +17,7 @@ pacman:
 - owncloud-client
 - yay
 - kitty
+- plasma-browser-integration
 
 AUR:
 - qdirstat

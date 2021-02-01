@@ -4,9 +4,8 @@
 | |  | | (_| | | | || | (_| | | | (_) |
 |_|  |_|\__,_|_| |_|/ |\__,_|_|  \___/ 
                   |__/                 
-Apps to install
 
-pacman:
+##pacman:
 - libinput-gestures
 - wmctrl
 - xdotool
@@ -18,8 +17,22 @@ pacman:
 - yay
 - kitty
 - plasma-browser-integration
+	For awesome:
+	- awesome
+	- nm-applet
+	- picom
+	- arandr
+	- xorg-xinput
+	- xorg-xbacklight
+	- pavucontrol-qt
+	- volumeicon
+	- scrot
+	- imagemagick
+	- i3lock
+	- xidlehook
 
-AUR:
+
+##AUR:
 - qdirstat
 - teams
 - gnome-keyring - for teams
@@ -28,29 +41,15 @@ AUR:
 - spotify
 - opendoas-sudo
 
-From web:
+##From web:
 - LispWorks
 
-Set up
+##Set up
 - Thunderbird and Teams start on 3rd desktop
-- Electronplayer + Lispworks launchers and icons
 - Commands:
 	chsh -s /bin/zsh 				[as user & as root]
 	ln -s /home/kuba/.zshrc /root/.zshrc 		[as root]
 	ln -s /home/kuba/.aliases /root/.aliases	[as root]
 
-For awesome:
-- awesome
-- nm-applet
-- picom
-- arandr
-- xorg-xinput
-- xorg-xbacklight
-- pavucontrol-qt
-- volumeicon
-- scrot
-- imagemagick
-- i3lock
-- xidlehook
 
 

@@ -24,6 +24,7 @@
 	- imagemagick
 	- i3lock
 	- xidlehook
+	- sxiv
 
 
 ## AUR:

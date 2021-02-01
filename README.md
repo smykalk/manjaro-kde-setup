@@ -41,9 +41,9 @@
 ## Set up
 - Thunderbird and Teams start on 3rd desktop
 - Commands:
-	chsh -s /bin/zsh 				[as user & as root]
-	ln -s /home/kuba/.zshrc /root/.zshrc 		[as root]
-	ln -s /home/kuba/.aliases /root/.aliases	[as root]
+	- chsh -s /bin/zsh 				[as user & as root]
+	- ln -s /home/kuba/.zshrc /root/.zshrc 		[as root]
+	- ln -s /home/kuba/.aliases /root/.aliases	[as root]
 
 
 

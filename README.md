@@ -35,6 +35,7 @@
 - electronplayer
 - spotify
 - opendoas-sudo
+- kwin-lowlatency
 
 ## From web:
 - LispWorks

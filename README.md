@@ -5,7 +5,7 @@
 |_|  |_|\__,_|_| |_|/ |\__,_|_|  \___/ 
                   |__/                 
 
-##pacman:
+## pacman:
 - libinput-gestures
 - wmctrl
 - xdotool
@@ -32,7 +32,7 @@
 	- xidlehook
 
 
-##AUR:
+## AUR:
 - qdirstat
 - teams
 - gnome-keyring - for teams
@@ -41,10 +41,10 @@
 - spotify
 - opendoas-sudo
 
-##From web:
+## From web:
 - LispWorks
 
-##Set up
+## Set up
 - Thunderbird and Teams start on 3rd desktop
 - Commands:
 	chsh -s /bin/zsh 				[as user & as root]

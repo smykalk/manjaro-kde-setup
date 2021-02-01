@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if pgrep xidlehook > /dev/null
+then
+	echo "xidlehook already running, killing it..."
+	killall xidlehook
+fi
+
+xidlehook \
+	--not-when-fullscreen \
+	--not-when-audio \
+	--timer 530 \
+		'lock' \
+		'' \
+	--timer 330 \
+		'systemctl suspend-then-hibernate' \
+		'' &

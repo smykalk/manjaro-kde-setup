@@ -1,10 +1,4 @@
- __  __              _                 
-|  \/  | __ _ _ __  (_) __ _ _ __ ___  
-| |\/| |/ _` | '_ \ | |/ _` | '__/ _ \ 
-| |  | | (_| | | | || | (_| | | | (_) |
-|_|  |_|\__,_|_| |_|/ |\__,_|_|  \___/ 
-                  |__/                 
-
+# Manjaro setup
 ## pacman:
 - libinput-gestures
 - wmctrl
@@ -17,7 +11,7 @@
 - yay
 - kitty
 - plasma-browser-integration
-	For awesome:
+	###### For awesome:
 	- awesome
 	- nm-applet
 	- picom

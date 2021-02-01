@@ -387,12 +387,20 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
     
     -- Volume control
-    awful.key({}, "XF86AudioRaiseVolume", function() os.execute("pactl set-sink-volume 0 +5%") end,
+--    awful.key({}, "XF86AudioRaiseVolume", function() os.execute("pactl set-sink-volume 0 +5%") end,
+--              {description = "raise volume", group = "i/o controls"}),    
+--    awful.key({}, "XF86AudioLowerVolume", function() os.execute("pactl set-sink-volume 0 -5%") end,
+--              {description = "raise volume", group = "i/o controls"}),    
+--    awful.key({}, "XF86AudioMute", function() os.execute("pactl set-sink-mute 0 toggle") end,
+--              {description = "raise volume", group = "i/o controls"}),    
+
+    awful.key({}, "XF86AudioRaiseVolume", function() os.execute("amixer set Master 5%+") end,
               {description = "raise volume", group = "i/o controls"}),    
-    awful.key({}, "XF86AudioLowerVolume", function() os.execute("pactl set-sink-volume 0 -5%") end,
+    awful.key({}, "XF86AudioLowerVolume", function() os.execute("amixer set Master 5%-") end,
               {description = "raise volume", group = "i/o controls"}),    
-    awful.key({}, "XF86AudioMute", function() os.execute("pactl set-sink-mute 0 toggle") end,
+    awful.key({}, "XF86AudioMute", function() os.execute("amixer set Master toggle") end,
               {description = "raise volume", group = "i/o controls"}),    
+
     --awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn.with_shell("pactl set-sink-volume 0 +5%") end,
       --        {description = "raise volume", group = "i/o controls"}),    
     --awful.key({}, "XF86AudioLowerVolume", function() awful.spawn.with_shell("pactl set-sink-volume 0 -5%") end,

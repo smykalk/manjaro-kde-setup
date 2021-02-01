@@ -43,7 +43,7 @@ vicious.register(batwidget, vicious.widgets.bat, ": $2%", 61, "BAT0")
 cpuwidget = wibox.widget.textbox()
 vicious.register(cpuwidget, vicious.widgets.cpu, "CPU: $1%", 2)
 
-
+-- Volume widget
 
 
 
@@ -335,7 +335,7 @@ globalkeys = gears.table.join(
               {description = "launch Firefox", group = "launcher"}),
 
     -- Lock screen
-    awful.key({ modkey,           }, ";", function () os.execute("lock") end,
+    awful.key({ modkey,           }, ";", function () awful.spawn.with_shell("lock") end,
               {description = "launch Firefox", group = "launcher"}),
     
 
@@ -390,16 +390,22 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioRaiseVolume", function() os.execute("pactl set-sink-volume 0 +5%") end,
               {description = "raise volume", group = "i/o controls"}),    
     awful.key({}, "XF86AudioLowerVolume", function() os.execute("pactl set-sink-volume 0 -5%") end,
-              {description = "lower volume", group = "i/o controls"}),
+              {description = "raise volume", group = "i/o controls"}),    
     awful.key({}, "XF86AudioMute", function() os.execute("pactl set-sink-mute 0 toggle") end,
-              {description = "mute volume", group = "i/o controls"}),
+              {description = "raise volume", group = "i/o controls"}),    
+    --awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn.with_shell("pactl set-sink-volume 0 +5%") end,
+      --        {description = "raise volume", group = "i/o controls"}),    
+    --awful.key({}, "XF86AudioLowerVolume", function() awful.spawn.with_shell("pactl set-sink-volume 0 -5%") end,
+      --        {description = "lower volume", group = "i/o controls"}),
+    --awful.key({}, "XF86AudioMute", function() awful.spawn.with_shell("pactl set-sink-mute 0 toggle") end,
+      --        {description = "mute volume", group = "i/o controls"}),
         
     
     -- Brightness control
-    awful.key({}, "XF86MonBrightnessUp", function() os.execute("xbacklight -inc 5%") end,
+    awful.key({}, "XF86MonBrightnessUp", function() awful.spawn.with_shell("xbacklight -inc 5%") end,
               {description = "increase brightness", group = "i/o controls"}),
     
-    awful.key({}, "XF86MonBrightnessDown", function() os.execute("xbacklight -dec 5%") end,
+    awful.key({}, "XF86MonBrightnessDown", function() awful.spawn.with_shell("xbacklight -dec 5%") end,
               {description = "decrease brightness", group = "i/o controls"})
     
 )
@@ -576,7 +582,7 @@ awful.rules.rules = {
     -- Set Thunderbird to always map on the tag named "" on screen 1.
     { rule = { class = "Thunderbird" },
        properties = { screen = 1, tag = "" } },
-    -- Set Konsole to always map on the tag named "" on screen 1.
+    -- Set terminal to always map on the tag named "" on screen 1.
     { rule = { class = terminal },
        properties = { screen = 1, tag = "" } },
     -- Set VSCode to always map on the tag named "" on screen 1.
@@ -585,7 +591,7 @@ awful.rules.rules = {
     -- Set Lispworks to always map on the tag named "" on screen 1.
     { rule = { class = "Lispworks" },
        properties = { screen = 1, tag = "" } },
-    -- Set Dolphin to always map on the tag named "" on screen 1.
+    -- Set file explorer to always map on the tag named "" on screen 1.
     { rule = { class = fileexp },
        properties = { screen = 1, tag = "" } },
     -- Set Spotify to always map on the tag named "" on screen 1.

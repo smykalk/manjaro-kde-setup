@@ -34,6 +34,10 @@ From web:
 Set up
 - Thunderbird and Teams start on 3rd desktop
 - Electronplayer + Lispworks launchers and icons
+- Commands:
+	chsh -s /bin/zsh 				[as user & as root]
+	ln -s /home/kuba/.zshrc /root/.zshrc 		[as root]
+	ln -s /home/kuba/.aliases /root/.aliases	[as root]
 
 For awesome:
 - awesome
@@ -48,3 +52,5 @@ For awesome:
 - imagemagick
 - i3lock
 - xidlehook
+
+

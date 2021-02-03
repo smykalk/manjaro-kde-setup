@@ -44,8 +44,8 @@ cpuwidget = wibox.widget.textbox()
 vicious.register(cpuwidget, vicious.widgets.cpu, "CPU: $1%", 2)
 
 -- Volume widget
-
-
+--volwidget = wibox.widget.textbox()
+--vicious.register(volwidget, vicious.widgets.volume, "VOL: $1%", 1, "Master")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -250,7 +250,9 @@ awful.screen.connect_for_each_screen(function(s)
             cpuwidget,
             separator,
             memwidget,
-            separator,
+--          separator,
+--	    volwidget,
+	    separator,
             batwidget,
             separator,
             mykeyboardlayout,
@@ -602,7 +604,7 @@ awful.rules.rules = {
     -- Set file explorer to always map on the tag named "" on screen 1.
     { rule = { class = fileexp },
        properties = { screen = 1, tag = "" } },
-    -- Set Spotify to always map on the tag named "" on screen 1.
+    -- Set Spotify to always map on the tag named "" on screen 1.
     { rule = { class = "Spotify" },
        properties = { screen = 1, tag = "" } },
     -- Set ElectronPlayer to always map on the tag named "" on screen 1.
@@ -699,3 +701,4 @@ if autorun then
 end
 
 
+-- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

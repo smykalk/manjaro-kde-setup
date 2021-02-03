@@ -10,6 +10,7 @@
 - owncloud-client
 - yay
 - kitty
+- bat
 - plasma-browser-integration
 	###### For awesome:
 	- awesome

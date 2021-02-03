@@ -12,6 +12,7 @@
 - kitty
 - bat
 - plasma-browser-integration
+- gnome-keyring - for teams
 	###### For awesome:
 	- awesome
 	- nm-applet
@@ -31,7 +32,6 @@
 ## AUR:
 - qdirstat
 - teams
-- gnome-keyring - for teams
 - visual-studio-code-bin
 - electronplayer
 - spotify

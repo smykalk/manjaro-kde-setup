@@ -1,0 +1,13 @@
+[Layout]
+DisplayNames=,
+LayoutList=us(altgr-intl),cz
+LayoutLoopCount=-1
+Model=pc86
+Options=grp:alt_shift_toggle,caps:swapescape
+ResetOldOptions=true
+ShowFlag=true
+ShowLabel=false
+ShowLayoutIndicator=true
+ShowSingle=true
+SwitchMode=Global
+Use=true

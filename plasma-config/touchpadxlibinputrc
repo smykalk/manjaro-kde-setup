@@ -1,0 +1,6 @@
+[SYNA3067:00 06CB:8265 Touchpad]
+naturalScroll=true
+pointerAcceleration=0.4
+
+[SynPS/2 Synaptics TouchPad]
+tapToClick=true

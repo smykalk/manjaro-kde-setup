@@ -1,0 +1,31 @@
+[General]
+FreeFloating=false
+HistoryEnabled=true
+RetainPriorSearch=true
+history=users,keyboard,them,qdir,virt,system settings,code,rave,kvantum,compositing,key repeat,timeshift,thunderbird,libre,st,kvant,kva,autostart,reboot,vlc,killall vlc,touc,davinci,dav,thund,shortcuts,pamac,lispworks,soft,own,zoom,ams,key repe,latte,animation,fingerprint-gui,power,gimp,bash,remmina,cursor,short,mine,system,lattte,electronplayer,shortcts,elec,teams,o
+
+[Plugins]
+CharacterRunnerEnabled=true
+DictionaryEnabled=true
+Kill RunnerEnabled=true
+PowerDevilEnabled=true
+Spell CheckerEnabled=false
+baloosearchEnabled=true
+bookmarksEnabled=true
+calculatorEnabled=true
+desktopsessionsEnabled=false
+katesessionsEnabled=false
+konsoleprofilesEnabled=false
+krunner_appstreamEnabled=false
+kwinEnabled=true
+locationsEnabled=true
+org.kde.activitiesEnabled=false
+org.kde.datetimeEnabled=true
+placesEnabled=true
+plasma-desktopEnabled=true
+recentdocumentsEnabled=true
+servicesEnabled=true
+shellEnabled=true
+unitconverterEnabled=true
+webshortcutsEnabled=false
+windowsEnabled=false

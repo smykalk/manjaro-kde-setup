@@ -1,0 +1,13 @@
+[ActionsWidget]
+ColumnState=AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbYAAAACAQAAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAAA+gAAAAEAAAAAAAAAvAAAAAEAAAAAAAAD6AAAAABk
+
+[ConfigDialog]
+eDP1 Height 1080=443
+eDP1 Width 1920=602
+
+[General]
+Number of Actions=0
+Version=5.20.5
+
+[Notification Messages]
+really_clear_history=true

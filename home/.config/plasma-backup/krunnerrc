@@ -2,7 +2,7 @@
 FreeFloating=false
 HistoryEnabled=true
 RetainPriorSearch=true
-history=users,keyboard,them,qdir,virt,system settings,code,rave,kvantum,compositing,key repeat,timeshift,thunderbird,libre,st,kvant,kva,autostart,reboot,vlc,killall vlc,touc,davinci,dav,thund,shortcuts,pamac,lispworks,soft,own,zoom,ams,key repe,latte,animation,fingerprint-gui,power,gimp,bash,remmina,cursor,short,mine,system,lattte,electronplayer,shortcts,elec,teams,o
+history=steam,shrot,kvantum,user,klipper,shortcuts,users,keyboard,them,qdir,virt,system settings,code,rave,compositing,key repeat,timeshift,thunderbird,libre,st,kvant,kva,autostart,reboot,vlc,killall vlc,touc,davinci,dav,thund,pamac,lispworks,soft,own,zoom,ams,key repe,latte,animation,fingerprint-gui,power,gimp,bash,remmina,cursor,short,mine,system,lattte,electronplayer
 
 [Plugins]
 CharacterRunnerEnabled=true

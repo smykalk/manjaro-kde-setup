@@ -1,6 +1,16 @@
+[ActionsWidget]
+ColumnState=AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAegAAAACAQAAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAAA+gAAAAEAAAAAAAAA7gAAAAEAAAAAAAAD6AAAAABk
+
+[ConfigDialog]
+eDP1 Height 1080=526
+eDP1 Width 1920=631
+
 [DownloadDialog Settings]
 eDP1 Height 1080=494
 eDP1 Width 1920=700
+
+[General]
+Number of Actions=0
 
 [Notification Messages]
 really_clear_history=true

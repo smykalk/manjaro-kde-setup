@@ -74,4 +74,4 @@ ElectricBorderCornerRatio=0.2
 ButtonsOnLeft=
 ButtonsOnRight=IAX
 library=org.kde.kwin.aurorae
-theme=__aurorae__svg__Nordic
+theme=__aurorae__svg__Ant-Dark

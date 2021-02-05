@@ -17,8 +17,8 @@ eDP1 HDMI1 XPosition=255
 eDP1 HDMI1 YPosition=124
 eDP1 Height 1080=870
 eDP1 Width 1920=1356
-eDP1 XPosition=4
-eDP1 YPosition=53
+eDP1 XPosition=430
+eDP1 YPosition=105
 
 [Open-with settings]
 CompletionMode=1

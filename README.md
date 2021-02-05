@@ -1,6 +1,5 @@
 # Manjaro setup
 ## pacman:
-- libinput-gestures
 - wmctrl
 - xdotool
 - tlpui
@@ -30,6 +29,7 @@
 
 
 ## AUR:
+- libinput-gestures
 - qdirstat
 - teams
 - visual-studio-code-bin

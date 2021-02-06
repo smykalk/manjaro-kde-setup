@@ -104,7 +104,7 @@ awful.layout.layouts = {
     awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
-    -- awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
@@ -331,8 +331,8 @@ globalkeys = gears.table.join(
     -- CUSTOM PROGRAMS
     awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
               {description = "launch Firefox", group = "launcher"}),
-    awful.key({ modkey,           }, "v", function () awful.spawn("thunderbird") end,
-              {description = "launch Thunderbird", group = "launcher"}),
+    --awful.key({ modkey,           }, "v", function () awful.spawn("thunderbird") end,
+    --          {description = "launch Thunderbird", group = "launcher"}),
     awful.key({ modkey,           }, "e", function () awful.spawn(fileexp) end,
               {description = "launch Firefox", group = "launcher"}),
 
@@ -396,11 +396,11 @@ globalkeys = gears.table.join(
 --    awful.key({}, "XF86AudioMute", function() os.execute("pactl set-sink-mute 0 toggle") end,
 --              {description = "raise volume", group = "i/o controls"}),    
 
-    awful.key({}, "XF86AudioRaiseVolume", function() os.execute("amixer set Master 5%+") end,
+    awful.key({}, "XF86AudioRaiseVolume", function() os.execute("amixer sset Master 5%+") end,
               {description = "raise volume", group = "i/o controls"}),    
-    awful.key({}, "XF86AudioLowerVolume", function() os.execute("amixer set Master 5%-") end,
+    awful.key({}, "XF86AudioLowerVolume", function() os.execute("amixer sset Master 5%-") end,
               {description = "raise volume", group = "i/o controls"}),    
-    awful.key({}, "XF86AudioMute", function() os.execute("amixer set Master toggle") end,
+    awful.key({}, "XF86AudioMute", function() os.execute("amixer sset Master toggle") end,
               {description = "raise volume", group = "i/o controls"}),    
 
     --awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn.with_shell("pactl set-sink-volume 0 +5%") end,
@@ -684,7 +684,7 @@ autorunApps =
 {
     "xinput set-prop 'SYNA3067:00 06CB:8265 Touchpad' 'libinput Accel Speed' 0.4",
     "xinput set-prop 'SYNA3067:00 06CB:8265 Touchpad' 'libinput Natural Scrolling Enabled' 1",
-    "picom",
+    "picom --experimental-backends",
     "setxkbmap -layout 'us(altgr-intl),cz' -option 'grp:alt_shift_toggle'",
     "setxkbmap -option 'caps:swapescape'",
     "xset r rate 500 50",
@@ -699,6 +699,8 @@ if autorun then
        awful.spawn.with_shell(autorunApps[app])
    end
 end
+
+awful.spawn("klipper");
 
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

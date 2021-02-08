@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if ! pgrep redshift > /dev/null
+then
+	redshift-gtk -t 6500:3500 &
+else
+	killall redshift
+	redshift-gtk -t 6500:3500 &
+fi

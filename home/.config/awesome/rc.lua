@@ -392,16 +392,18 @@ globalkeys = gears.table.join(
 --    awful.key({}, "XF86AudioRaiseVolume", function() os.execute("pactl set-sink-volume 0 +5%") end,
 --              {description = "raise volume", group = "i/o controls"}),    
 --    awful.key({}, "XF86AudioLowerVolume", function() os.execute("pactl set-sink-volume 0 -5%") end,
---              {description = "raise volume", group = "i/o controls"}),    
+--              {description = "lower volume", group = "i/o controls"}),    
 --    awful.key({}, "XF86AudioMute", function() os.execute("pactl set-sink-mute 0 toggle") end,
---              {description = "raise volume", group = "i/o controls"}),    
+--              {description = "mute sound", group = "i/o controls"}),    
 
     awful.key({}, "XF86AudioRaiseVolume", function() os.execute("amixer sset Master 5%+") end,
               {description = "raise volume", group = "i/o controls"}),    
     awful.key({}, "XF86AudioLowerVolume", function() os.execute("amixer sset Master 5%-") end,
-              {description = "raise volume", group = "i/o controls"}),    
+              {description = "lower volume", group = "i/o controls"}),    
     awful.key({}, "XF86AudioMute", function() os.execute("amixer sset Master toggle") end,
-              {description = "raise volume", group = "i/o controls"}),    
+              {description = "toggle mute", group = "i/o controls"}),    
+    awful.key({}, "XF86AudioMicMute", function() awful.spawn.with_shell("toggle-mic") end,
+              {description = "toggle microphone", group = "i/o controls"}),    
 
     --awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn.with_shell("pactl set-sink-volume 0 +5%") end,
       --        {description = "raise volume", group = "i/o controls"}),    
@@ -412,12 +414,19 @@ globalkeys = gears.table.join(
         
     
     -- Brightness control
-    awful.key({}, "XF86MonBrightnessUp", function() awful.spawn.with_shell("xbacklight -inc 5%") end,
+    awful.key({}, "XF86MonBrightnessUp", 
+              function() 
+                  awful.spawn.with_shell("xbacklight -inc 5%") 
+                  awful.spawn.with_shell("xbacklight | while read OUTPUT; do dunstify --replace=1 -t 500 \"Brightness\" \"$OUTPUT\"; done")
+              end,
               {description = "increase brightness", group = "i/o controls"}),
     
-    awful.key({}, "XF86MonBrightnessDown", function() awful.spawn.with_shell("xbacklight -dec 5%") end,
+    awful.key({}, "XF86MonBrightnessDown", 
+              function() 
+                  awful.spawn.with_shell("xbacklight -dec 5%") 
+                  awful.spawn.with_shell("xbacklight | while read OUTPUT; do dunstify --replace=1 -t 500 \"Brightness\" \"$OUTPUT\"; done")
+              end,
               {description = "decrease brightness", group = "i/o controls"})
-    
 )
 
 clientkeys = gears.table.join(
@@ -693,6 +702,7 @@ autorunApps =
     "dualscreen",
     "libinput-gestures-setup start",
     "locker",
+    "rshift-gtk",
 }
 if autorun then
    for app = 1, #autorunApps do

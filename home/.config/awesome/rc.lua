@@ -416,15 +416,13 @@ globalkeys = gears.table.join(
     -- Brightness control
     awful.key({}, "XF86MonBrightnessUp", 
               function() 
-                  awful.spawn.with_shell("xbacklight -inc 5%") 
-                  awful.spawn.with_shell("xbacklight | while read OUTPUT; do dunstify --replace=1 -t 500 \"Brightness\" \"$OUTPUT\"; done")
+                  awful.spawn.with_shell("xbacklight -inc 5% && xbacklight | while read OUTPUT; do dunstify --replace=1 -t 1000 \"Brightness\" \"$OUTPUT\"; done") 
               end,
               {description = "increase brightness", group = "i/o controls"}),
     
     awful.key({}, "XF86MonBrightnessDown", 
               function() 
-                  awful.spawn.with_shell("xbacklight -dec 5%") 
-                  awful.spawn.with_shell("xbacklight | while read OUTPUT; do dunstify --replace=1 -t 500 \"Brightness\" \"$OUTPUT\"; done")
+                  awful.spawn.with_shell("xbacklight -dec 5% && xbacklight | while read OUTPUT; do dunstify --replace=1 -t 1000 \"Brightness\" \"$OUTPUT\"; done") 
               end,
               {description = "decrease brightness", group = "i/o controls"})
 )

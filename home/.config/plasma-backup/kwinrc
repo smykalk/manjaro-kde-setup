@@ -37,12 +37,15 @@ CommandInactiveTitlebar2=Close
 
 [NightColor]
 Active=true
-LatitudeAuto=49.85
-LongitudeAuto=18.575
+LatitudeAuto=50.0804
+LongitudeAuto=14.5045
 NightTemperature=3500
 
 [Plugins]
+ParachuteEnabled=false
 desktopchangeosdEnabled=true
+forceblurEnabled=true
+krohnkiteEnabled=true
 kwin4_effect_dimscreenEnabled=true
 kwin4_effect_squashEnabled=false
 lattewindowcolorsEnabled=true
@@ -74,4 +77,4 @@ ElectricBorderCornerRatio=0.2
 ButtonsOnLeft=
 ButtonsOnRight=IAX
 library=org.kde.kwin.aurorae
-theme=__aurorae__svg__Ant-Dark
+theme=__aurorae__svg__Nordic

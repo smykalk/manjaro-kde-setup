@@ -1,24 +1,24 @@
 [KFileDialog Settings]
-Recent Files[$e]=ectdhmwe61861.png,file:$HOME/.local/share/wallpapers/Wallpapers/ectdhmwe61861.png
-Recent URLs[$e]=file:$HOME/.local/share/wallpapers/Wallpapers/
+Recent Files[$e]=ectdhmwe61861.png,file:$HOME/Pictures/8-512.jpg
+Recent URLs[$e]=file:$HOME/Pictures/
 detailViewIconSize=16
 
 [MainWindow]
 HDMI1 eDP1 Height 1080=700
 HDMI1 eDP1 Width 1920=1024
-HDMI1 eDP1 XPosition=384
-HDMI1 eDP1 YPosition=250
+HDMI1 eDP1 XPosition=378
+HDMI1 eDP1 YPosition=159
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAABUwAAANmAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAABPgAAAK8AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
 eDP1 HDMI1 Height 1080=700
 eDP1 HDMI1 Width 1920=1024
 eDP1 HDMI1 XPosition=255
 eDP1 HDMI1 YPosition=124
-eDP1 Height 1080=870
-eDP1 Width 1920=1356
-eDP1 XPosition=430
-eDP1 YPosition=105
+eDP1 Height 1080=700
+eDP1 Width 1920=1272
+eDP1 XPosition=302
+eDP1 YPosition=189
 
 [Open-with settings]
 CompletionMode=1

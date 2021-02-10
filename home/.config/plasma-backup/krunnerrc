@@ -2,7 +2,7 @@
 FreeFloating=false
 HistoryEnabled=true
 RetainPriorSearch=true
-history=steam,shrot,kvantum,user,klipper,shortcuts,users,keyboard,them,qdir,virt,system settings,code,rave,compositing,key repeat,timeshift,thunderbird,libre,st,kvant,kva,autostart,reboot,vlc,killall vlc,touc,davinci,dav,thund,pamac,lispworks,soft,own,zoom,ams,key repe,latte,animation,fingerprint-gui,power,gimp,bash,remmina,cursor,short,mine,system,lattte,electronplayer
+history=touchpad,search,system,system settings,shortcuts,user,lock,splash,lispworks,kvantum,settings wallpa,steam,shrot,klipper,users,keyboard,them,qdir,virt,code,rave,compositing,key repeat,timeshift,thunderbird,libre,st,kvant,kva,autostart,reboot,vlc,killall vlc,touc,davinci,dav,thund,pamac,soft,own,zoom,ams,key repe,latte,animation,fingerprint-gui,power,gimp,bash,remmina
 
 [Plugins]
 CharacterRunnerEnabled=true
@@ -10,20 +10,21 @@ DictionaryEnabled=true
 Kill RunnerEnabled=true
 PowerDevilEnabled=true
 Spell CheckerEnabled=false
-baloosearchEnabled=true
-bookmarksEnabled=true
+baloosearchEnabled=false
+bookmarksEnabled=false
+browsertabsEnabled=true
 calculatorEnabled=true
 desktopsessionsEnabled=false
 katesessionsEnabled=false
 konsoleprofilesEnabled=false
 krunner_appstreamEnabled=false
 kwinEnabled=true
-locationsEnabled=true
+locationsEnabled=false
 org.kde.activitiesEnabled=false
 org.kde.datetimeEnabled=true
-placesEnabled=true
+placesEnabled=false
 plasma-desktopEnabled=true
-recentdocumentsEnabled=true
+recentdocumentsEnabled=false
 servicesEnabled=true
 shellEnabled=true
 unitconverterEnabled=true

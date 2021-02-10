@@ -5,7 +5,11 @@ update_info=kscreenlocker.upd:0.1-autolock
 Timeout=15
 
 [Greeter]
-Theme=Ant-Dark
+Theme=Nordic
+WallpaperPlugin=org.kde.slideshow
 
 [Greeter][Wallpaper][org.kde.image][General]
 Image=/home/kuba/.local/share/wallpapers/Wallpapers/SBKjnxm.jpeg
+
+[Greeter][Wallpaper][org.kde.slideshow][General]
+SlidePaths=/home/kuba/.local/share/wallpapers/

@@ -65,7 +65,7 @@ _launch=Alt+Space\tAlt+F2\tSearch,Alt+Space\tAlt+F2\tSearch,KRunner
 
 [ksmserver]
 Halt Without Confirmation=Meta+Ctrl+Shift+PgDown,Ctrl+Alt+Shift+PgDown,Halt Without Confirmation
-Lock Session=Screensaver\tMeta+L,Meta+L\tCtrl+Alt+L\tScreensaver,Lock Session
+Lock Session=Meta+;\tScreensaver,Meta+L\tCtrl+Alt+L\tScreensaver,Lock Session
 Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,Log Out
 Log Out Without Confirmation=Meta+Ctrl+Shift+Del,Ctrl+Alt+Shift+Del,Log Out Without Confirmation
 Reboot Without Confirmation=Meta+Ctrl+Shift+PgUp,Ctrl+Alt+Shift+PgUp,Reboot Without Confirmation
@@ -82,6 +82,33 @@ Invert Screen Colors=none,none,Invert Screen Colors
 KWin Script: Sticky Window Snapping: enable/disable=,none,KWin Script: Sticky Window Snapping: enable/disable
 KWin Script: Sticky Window Snapping: enable/disable temporarily=Ctrl+Shift+S,none,KWin Script: Sticky Window Snapping: enable/disable temporarily
 Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window
+Krohnkite: Cycle Layout=Meta+Ctrl+Space,none,
+Krohnkite: Decrease=,none,
+Krohnkite: Down/Next=,none,
+Krohnkite: Float=Meta+F,none,
+Krohnkite: Float All=Meta+Shift+F,none,
+Krohnkite: Floating Layout=none,none,
+Krohnkite: Grow Height=Meta+Ctrl+J,none,
+Krohnkite: Grow Width=Meta+Ctrl+L,none,
+Krohnkite: Increase=Meta+I,none,
+Krohnkite: Left=Meta+H,none,
+Krohnkite: Monocle Layout=,none,
+Krohnkite: Move Down/Next=Meta+Shift+K,none,
+Krohnkite: Move Left=Meta+Shift+H,none,
+Krohnkite: Move Right=Meta+Shift+L,none,
+Krohnkite: Move Up/Prev=Meta+Shift+J,none,
+Krohnkite: Next Layout=none,none,
+Krohnkite: Previous Layout=none,none,
+Krohnkite: Quarter Layout=none,none,
+Krohnkite: Right=Meta+L,none,
+Krohnkite: Set master=Meta+Ctrl+Return,none,
+Krohnkite: Shrink Height=Meta+Ctrl+K,none,
+Krohnkite: Shrink Width=Meta+Ctrl+H,none,
+Krohnkite: Spread Layout=none,none,
+Krohnkite: Stair Layout=none,none,
+Krohnkite: Three Column Layout=none,none,
+Krohnkite: Tile Layout=Meta+T,none,
+Krohnkite: Up/Prev=Meta+J,none,
 MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
 MoveMouseToFocus=Meta+F5,Meta+F5,Move Mouse to Focus
 MoveZoomDown=none,none,Move Zoomed Area Downwards
@@ -334,7 +361,3 @@ toggle do not disturb=none,none,Toggle do not disturb
 [systemsettings.desktop]
 _k_friendly_name=System Settings
 _launch=Tools,Tools,System Settings
-
-[yakuake]
-_k_friendly_name=Yakuake
-toggle-window-state=F12,F12,Open/Retract Yakuake

@@ -89,7 +89,7 @@ immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][1][Applets][35][Configuration]
-PreloadWeight=23
+PreloadWeight=47
 
 [Containments][1][Applets][35][Configuration][General]
 favoritesPortedToKAstats=true
@@ -156,7 +156,7 @@ ToolBoxButtonX=668
 ToolBoxButtonY=25
 
 [Containments][17][Wallpaper][org.kde.image][General]
-Image=file:///usr/share/wallpapers/Kokkini/contents/images/3840x2160.png
+Image=file:///home/kuba/.local/share/wallpapers/1606965908744.jpg
 SlidePaths=/home/kuba/.local/share/wallpapers,/usr/share/wallpapers
 
 [Containments][21]
@@ -169,14 +169,14 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][21][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
+DialogHeight=1056
+DialogWidth=1920
 
 [Containments][21][Configuration]
 PreloadWeight=0
 
 [Containments][21][Wallpaper][org.kde.image][General]
-Image=file:///home/kuba/.local/share/wallpapers/Wallpapers/l7M4BPX.png
+Image=file:///home/kuba/.local/share/wallpapers/1610485768315.jpg
 SlidePaths=/home/kuba/.local/share/wallpapers,/usr/share/wallpapers
 
 [Containments][8]
@@ -279,6 +279,9 @@ plugin=org.kde.plasma.volume
 [Containments][8][Applets][9][Configuration]
 PreloadWeight=0
 
+[Containments][8][Applets][9][Configuration][General]
+globalMute=true
+
 [Containments][8][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
@@ -299,4 +302,4 @@ temperatureFontSize=75
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/steam.desktop,0
+screenMapping=

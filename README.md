@@ -26,7 +26,10 @@
 	- i3lock
 	- xidlehook
 	- sxiv
-
+    - dunstify
+    ###### dwm:
+    -dunst & /usr/share/dbus....
+    -qt5ct & /etc/profile
 
 ## AUR:
 - libinput-gestures
@@ -36,7 +39,6 @@
 - electronplayer
 - spotify
 - opendoas-sudo
-- kwin-lowlatency
 
 ## From web:
 - LispWorks

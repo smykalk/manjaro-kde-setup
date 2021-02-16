@@ -1,0 +1,28 @@
+#!/bin/sh
+
+level=$(cat /sys/class/power_supply/BAT0/capacity)
+status=$(cat /sys/class/power_supply/BAT0/status)
+
+if (($level > 87))
+then
+    icon=
+elif (($level > 63 && $level <= 87))
+then
+    icon=
+elif (($level > 38 && $level <= 62))
+then
+    icon=
+elif (($level > 13 && $level <= 38))
+then
+    icon=
+else
+    icon=
+fi
+
+if [[ $status = "Charging" ]]
+then
+    printf "%s: %s%% " $icon $level
+else
+    printf "%s: %s%%" $icon $level
+fi
+

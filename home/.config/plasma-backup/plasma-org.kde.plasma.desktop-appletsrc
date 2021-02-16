@@ -89,7 +89,7 @@ immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][1][Applets][35][Configuration]
-PreloadWeight=14
+PreloadWeight=0
 
 [Containments][1][Applets][35][Configuration][General]
 favoritesPortedToKAstats=true
@@ -100,7 +100,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][7][Configuration]
-PreloadWeight=68
+PreloadWeight=39
 SystrayContainmentId=8
 
 [Containments][1][Applets][7][Configuration][Containments][8]
@@ -249,7 +249,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][8][Applets][19][Configuration]
-PreloadWeight=0
+PreloadWeight=19
 
 [Containments][8][Applets][20]
 immutability=1
@@ -263,7 +263,7 @@ immutability=1
 plugin=org.kde.plasma.mediacontroller
 
 [Containments][8][Applets][22][Configuration]
-PreloadWeight=68
+PreloadWeight=0
 
 [Containments][8][Applets][22][Configuration][ConfigDialog]
 DialogHeight=540
@@ -285,6 +285,10 @@ plugin=org.kde.plasma.volume
 
 [Containments][8][Applets][9][Configuration]
 PreloadWeight=0
+
+[Containments][8][Applets][9][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
 
 [Containments][8][ConfigDialog]
 DialogHeight=540

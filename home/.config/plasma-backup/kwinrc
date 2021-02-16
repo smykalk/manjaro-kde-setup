@@ -3,6 +3,8 @@ update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-
 
 [Compositing]
 GLCore=true
+GLPreferBufferSwap=e
+GLTextureFilter=0
 LatencyControl=0
 MaxLatency=4
 MinLatency=4
@@ -16,6 +18,9 @@ Id_4=1ef8b282-03c0-4402-8725-60cbc6c05bcf
 Number=4
 Rows=1
 
+[DrmOutputs][5455cceeaa][5455cceeaa]
+Scale=1
+
 [Effect-DesktopGrid]
 LayoutMode=2
 
@@ -27,6 +32,9 @@ SlideDocks=true
 
 [ElectricBorders]
 TopLeft=None
+
+[KDE]
+AnimationDurationFactor=0.5
 
 [ModifierOnlyShortcuts]
 Meta=org.kde.kglobalaccel,/component/krunner_desktop,org.kde.kglobalaccel.Component,invokeShortcut,_launch
@@ -43,15 +51,22 @@ NightTemperature=3500
 
 [Plugins]
 ParachuteEnabled=false
+blurEnabled=false
 desktopchangeosdEnabled=true
-forceblurEnabled=true
+forceblurEnabled=false
 krohnkiteEnabled=true
 kwin4_effect_dimscreenEnabled=true
+kwin4_effect_fadedesktopEnabled=true
+kwin4_effect_fadingpopupsEnabled=false
+kwin4_effect_morphingpopupsEnabled=false
 kwin4_effect_squashEnabled=false
+kwin4_effect_translucencyEnabled=false
 lattewindowcolorsEnabled=true
 magiclampEnabled=true
 minimizeallEnabled=false
-sheetEnabled=true
+screenedgeEnabled=false
+slideEnabled=false
+slidingpopupsEnabled=false
 sticky-window-snappingEnabled=true
 synchronizeskipswitcherEnabled=false
 videowallEnabled=false

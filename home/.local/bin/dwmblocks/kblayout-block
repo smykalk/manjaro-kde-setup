@@ -1,0 +1,11 @@
+#!/bin/bash
+
+icon=
+
+case "$(xset -q | grep -A 0 'LED' | cut -c59-65)" in
+  "0000000") layout="US" ;;
+  "0000100") layout="CZ" ;;
+  *) layout="unknown" ;;
+esac
+
+printf "%s: %s" $icon $layout

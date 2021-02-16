@@ -689,8 +689,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps =
 {
-    "xinput set-prop 'SYNA3067:00 06CB:8265 Touchpad' 'libinput Accel Speed' 0.4",
-    "xinput set-prop 'SYNA3067:00 06CB:8265 Touchpad' 'libinput Natural Scrolling Enabled' 1",
+    "set-touchpad",
     "picom --experimental-backends",
     "setxkbmap -layout 'us(altgr-intl),cz' -option 'grp:alt_shift_toggle'",
     "setxkbmap -option 'caps:swapescape'",

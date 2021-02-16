@@ -1,9 +1,8 @@
 #!/bin/bash
 
-if ! pgrep redshift > /dev/null
+if pgrep redshift > /dev/null
 then
-	redshift-gtk -t 6500:3500 &
-else
 	killall redshift
-	redshift-gtk -t 6500:3500 &
 fi
+
+redshift-gtk -t 6500:3500 -l 49.59:17.27 &

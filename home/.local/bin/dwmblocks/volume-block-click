@@ -1,0 +1,6 @@
+#!/bin/sh
+
+case "$1" in
+    1) volume toggle && sigdwmblocks 3;;
+    3) pavucontrol-qt ;;
+esac

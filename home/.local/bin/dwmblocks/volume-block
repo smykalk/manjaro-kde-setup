@@ -1,0 +1,15 @@
+#!/bin/bash
+
+volume=$(amixer sget Master | awk -F"[][]" '/Left:/ { print $2 }')
+status=$(amixer sget Master | awk -F"[][]" '/Left:/ { print $4 }')
+
+icon=
+
+# echo $status
+if [[ $status = "off" ]]
+then    
+    #volume=" ($volume)"
+    volume="($volume)"
+fi
+
+printf "%s: %s" $icon $volume

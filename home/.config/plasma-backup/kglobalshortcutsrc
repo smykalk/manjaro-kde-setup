@@ -5,7 +5,7 @@ switch-to-activity-26fa1896-72e7-4697-bc70-c927cbebf897=none,none,Switch to acti
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to Czech=none,none,Switch keyboard layout to Czech
 Switch keyboard layout to English (intl., with AltGr dead keys)=none,none,Switch keyboard layout to English (intl.\\, with AltGr dead keys)
-Switch to Next Keyboard Layout=Ctrl+Alt+K,none,Switch to Next Keyboard Layout
+Switch to Next Keyboard Layout=Ctrl+Alt+K,Ctrl+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
 [firefox.desktop]

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+level=$(xbacklight -get | cut -f 1 -d '.')
+icon=
+
+printf "%s: %s%%" $icon $level

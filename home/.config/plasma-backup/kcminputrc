@@ -7,6 +7,12 @@ NumLock=2
 RepeatDelay=600
 RepeatRate=25
 
+[Libinput][1739][33381][SYNA3067:00 06CB:8265 Touchpad]
+NaturalScroll=true
+PointerAcceleration=0.400
+ScrollFactor=0.75
+TapToClick=true
+
 [Mouse]
 XLbInptAccelProfileFlat=true
 XLbInptPointerAcceleration=0.4

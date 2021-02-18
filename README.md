@@ -10,7 +10,10 @@
 - yay
 - kitty
 - bat
+- lsd
 - libinput-gestures
+- mlocate
+
 - gnome-keyring (for teams)
 	###### For dwm:
 	- network-manager-applet

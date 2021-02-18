@@ -24,11 +24,43 @@ endif
 set background=dark
 
 set showmatch
+
 set mouse=a
+
+" line numbers
 set number
 set relativenumber
+
+" not compatible with vi
 set nocompatible
+
+" path for files
 set path+=**
 set wildmenu
+
+" use system clipboard
 set clipboard=unnamedplus
 
+" tabs
+set tabstop=4 softtabstop=4
+
+set shiftwidth=4
+set expandtab
+set smartindent
+
+set nohlsearch
+
+set hidden
+
+set noerrorbells
+
+set ignorecase
+set smartcase
+
+set incsearch
+
+set scrolloff=4
+
+set colorcolumn=81
+
+set cmdheight=2

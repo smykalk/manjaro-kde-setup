@@ -2,7 +2,7 @@
 
 if (amixer sset Capture toggle | grep off) > /dev/null
 then
-	dunstify -r 2 -t 1000 "Microphone muted"
+	notify-send -t 1000 "Microphone muted"
 else
-	dunstify -r 2 -t 1000 "Microphone on"
+	notify-send -t 1000 "Microphone on"
 fi

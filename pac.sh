@@ -1,14 +1,13 @@
 #!/bin/bash
 
-read -p 'Install awesomewm and deps? (y/n) ' awesome
+read -p 'Install deps for dwm? (y/n) ' dwm
 
-sudo pacman -S --noconfirm wmctrl xdotool tlpui timeshift gvim texmaker owncloud-client yay kitty bat plasma-browser-integration gnome-keyring base-devel
+sudo pacman -Syy --noconfirm wmctrl xdotool libinput-gestures tlpui timeshift gvim texstudio owncloud-client kitty bat gnome-keyring base-devel yay
 
-yay -Sa libinput-gestures qdirstat teams visual-studio-code-bin electronplayer spotify opendoas-sudo 
+yay -Sa qdirstat teams visual-studio-code-bin electronplayer spotify opendoas-sudo 
 
-if [[ "$awesome" == "y" ]]
+if [[ "$dwm" == "y" ]]
 then
-	echo "installing awesome"
-	sudo pacman -S --noconfirm awesome nm-applet arandr xorg-xinput xorg-xbacklight pavucontrol-qt volumeicon scrot imagemagick i3lock xidlehook sxiv
-	yay -Sa picom-git
+	echo "installing deps for dwm"
+	sudo pacman -S --noconfirm awesome nm-applet arandr xorg-xinput xorg-xbacklight pavucontrol-qt scrot imagemagick i3lock xidlehook sxiv
 fi

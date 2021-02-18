@@ -5,50 +5,47 @@
 - tlpui
 - timeshift
 - gvim
-- texmaker
+- texstudio
 - owncloud-client
 - yay
 - kitty
 - bat
-- plasma-browser-integration
-- gnome-keyring - for teams
-	###### For awesome:
-	- awesome
-	- nm-applet
-	- picom
+- libinput-gestures
+- gnome-keyring (for teams)
+	###### For dwm:
+	- network-manager-applet
 	- arandr
 	- xorg-xinput
 	- xorg-xbacklight
 	- pavucontrol-qt
-	- volumeicon
 	- scrot
 	- imagemagick
 	- i3lock
 	- xidlehook
 	- sxiv
-    - dunstify
-    ###### dwm:
-    -dunst & /usr/share/dbus....
-    -qt5ct & /etc/profile
+    - dunst
+    - qt5ct
 
 ## AUR:
-- libinput-gestures
 - qdirstat
 - teams
 - visual-studio-code-bin
 - electronplayer
 - spotify
 - opendoas-sudo
+    ###### For dwm:
+    - picom-git (not needed)
 
 ## From web:
 - LispWorks
 
 ## Set up
-- Thunderbird and Teams start on 3rd desktop
 - Commands:
 	- chsh -s /bin/zsh 				[as user & as root]
 	- ln -s /home/kuba/.zshrc /root/.zshrc 		[as root]
 	- ln -s /home/kuba/.aliases /root/.aliases	[as root]
-
+    - timedatectl set-local-rtc 1 --adjust-system-clock
+    - sudo rm /usr/share/dbus-1/services/org.knopwob.dunst.service (don't autostart dunst)
+    - Install FontAwesome
 
 

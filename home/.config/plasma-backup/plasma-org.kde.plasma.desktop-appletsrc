@@ -89,7 +89,7 @@ immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][1][Applets][35][Configuration]
-PreloadWeight=0
+PreloadWeight=30
 
 [Containments][1][Applets][35][Configuration][General]
 favoritesPortedToKAstats=true
@@ -100,7 +100,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][7][Configuration]
-PreloadWeight=39
+PreloadWeight=23
 SystrayContainmentId=8
 
 [Containments][1][Applets][7][Configuration][Containments][8]
@@ -200,7 +200,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][8][Applets][11][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][8][Applets][12]
 immutability=1
@@ -249,7 +249,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][8][Applets][19][Configuration]
-PreloadWeight=19
+PreloadWeight=3
 
 [Containments][8][Applets][20]
 immutability=1

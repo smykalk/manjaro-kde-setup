@@ -3,3 +3,5 @@
 	name = Jakub Smykal
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main

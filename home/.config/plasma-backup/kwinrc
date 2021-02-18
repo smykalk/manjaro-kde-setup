@@ -51,7 +51,7 @@ NightTemperature=3500
 
 [Plugins]
 ParachuteEnabled=false
-blurEnabled=false
+blurEnabled=true
 desktopchangeosdEnabled=true
 forceblurEnabled=false
 krohnkiteEnabled=true

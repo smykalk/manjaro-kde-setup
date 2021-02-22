@@ -24,10 +24,10 @@
 	- scrot
 	- imagemagick
 	- i3lock
-	- xidlehook
 	- sxiv
     - dunst
     - qt5ct
+    - hsetroot
 
 ## AUR:
 - qdirstat
@@ -38,17 +38,14 @@
 - opendoas-sudo
     ###### For dwm:
     - picom-git (not needed)
-
-## From web:
-- LispWorks
+    - redshift-qt
+	- xidlehook
 
 ## Set up
 - Commands:
-	- chsh -s /bin/zsh 				[as user & as root]
+	- chsh -s /bin/zsh  [as user & as root]
 	- ln -s /home/kuba/.zshrc /root/.zshrc 		[as root]
 	- ln -s /home/kuba/.aliases /root/.aliases	[as root]
-    - timedatectl set-local-rtc 1 --adjust-system-clock
+    - timedatectl set-local-rtc 1 --adjust-system-clock (correct Windows time)
     - sudo rm /usr/share/dbus-1/services/org.knopwob.dunst.service (don't autostart dunst)
     - Install FontAwesome
-
-

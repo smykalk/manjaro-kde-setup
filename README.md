@@ -36,6 +36,7 @@
 - electronplayer
 - spotify
 - opendoas-sudo
+- usbreset
     ###### For dwm:
     - picom-git (not needed)
     - redshift-qt

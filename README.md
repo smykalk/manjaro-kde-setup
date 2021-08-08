@@ -42,6 +42,9 @@
     - redshift-qt
 	- xidlehook
 
+## git:
+- AppNativefyer
+
 ## Set up
 - Commands:
 	- chsh -s /bin/zsh  [as user & as root]

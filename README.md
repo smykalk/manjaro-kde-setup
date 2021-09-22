@@ -53,3 +53,4 @@
     - timedatectl set-local-rtc 1 --adjust-system-clock (correct Windows time)
     - sudo rm /usr/share/dbus-1/services/org.knopwob.dunst.service (don't autostart dunst)
     - Install FontAwesome
+    - gsettings set org.gnome.mutter focus-change-on-pointer-rest false (gnome focus follows mouse immediately)

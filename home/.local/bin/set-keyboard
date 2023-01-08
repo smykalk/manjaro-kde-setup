@@ -1,6 +1,0 @@
-#!/bin/bash
-
-setxkbmap -layout 'us(altgr-intl),cz' -option 'grp:alt_shift_toggle'
-setxkbmap -option 'caps:swapescape'
-xset r rate 500 50
-

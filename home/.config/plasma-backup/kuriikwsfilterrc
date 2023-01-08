@@ -1,6 +1,0 @@
-[General]
-DefaultWebShortcut=qt4
-EnableWebShortcuts=true
-KeywordDelimiter=:
-PreferredWebShortcuts=youtube,google,wikipedia,wikit
-UsePreferredWebShortcutsOnly=false

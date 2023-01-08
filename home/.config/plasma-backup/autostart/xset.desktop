@@ -1,7 +1,0 @@
-[Desktop Entry]
-Exec=xset r rate 400 50
-Icon=
-Name=xset
-Path=
-Terminal=False
-Type=Application

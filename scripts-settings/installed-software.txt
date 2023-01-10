@@ -1,0 +1,22 @@
+--needed flag!
+
+base-devel
+lsd
+bat
+gvim
+mlocate
+speedtest-cli
+python-pip
+plank
+spotify
+spotifyd
+spotify-qt
+tlpui
+betterbird
+birdtray
+kodi
+visual-studio-code-bin
+vlc
+gimp
+qbittorrent
+opendoas-sudo

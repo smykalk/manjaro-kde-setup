@@ -1,0 +1,38 @@
+ 
+alias \
+myip='curl ipinfo.io/ip' \
+ls='lsd' \
+l='ls' \
+la='ls -a' \
+ll='ls -lh' \
+lla='ls -lah' \
+lsize='ls -lahS' \
+cat='batcat' \
+cp='cp -iv' \
+mv='mv -iv' \
+rm='rm -v' \
+mkd='mkdir -pv' \
+..='cd ..' \
+grep='grep --color=auto' \
+df='df -h' \
+stor='cd /media/storage/' \
+skol='cd /media/storage/ownCloud/SKOLA/LS4' \
+awec='vim ~/.config/awesome/rc.lua' \
+rdup='rdesktop ts.inf.upol.cz -u smykja00 -p - -d prfad -x b -z -P -r sound:local -r clipboard:PRIMARYCLIPBOARD -g 80%x80%' \
+free='free -h' \
+restartplasma='plasmashell --replace &' \
+restartkwin='kwin_x11 --replace &' \
+pa='pavucontrol-qt &' \
+sus='systemctl suspend-then-hibernate' \
+hib='systemctl hibernate' \
+gitu='git add . && git commit && git push' \
+gs='git status' \
+gc='git commit' \
+gp='git push' \
+pcount='yay -Q | wc -l' \
+sx='sxiv' \
+wttr='curl wttr.in' \
+wttro='curl wttr.in/olomouc' \
+mci='sudo make clean install' \
+sau='sudo apt update && sudo apt upgrade -y' \
+sai='sudo apt install' \

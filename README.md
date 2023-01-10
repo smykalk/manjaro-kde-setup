@@ -1,29 +1,31 @@
 # Manjaro setup
-## pacman:
-- tlpui
-- timeshift
-- gvim
-- owncloud-client
-- yay
-- kitty
-- bat
+- install paru
+## packages (AUR packages included):
+- base-devel
 - lsd
+- bat
+- gvim
 - mlocate
-
-## AUR:
-- qdirstat
-- visual-studio-code-bin
+- speedtest-cli
+- python-pip
+- plank
 - spotify
-- opendoas-sudo
-
-## git:
-- AppNativefyer
+- spotifyd
+- spotify-qt
+- tlpui
+- betterbird
+- birdtray
+- kodi
+- vscode
+- vlc
+- gimp
+- qbittorrent
+- opendoas-sudo (copy config first!!!)
+- qdirstat-bin
 
 ## Set up
 - Commands:
 	- chsh -s /bin/zsh  [as user & as root]
-	- ln -s /home/kuba/.zshrc /root/.zshrc 		[as root]
-	- ln -s /home/kuba/.aliases /root/.aliases	[as root]
     - timedatectl set-local-rtc 1 --adjust-system-clock (correct Windows time)
-    - sudo rm /usr/share/dbus-1/services/org.knopwob.dunst.service (don't autostart dunst)
     - Install FontAwesome
+
